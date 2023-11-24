@@ -12,7 +12,7 @@ $('#boton').click(function(){
           });
         },
         error: function() {
-          console.error('Error en la petición Ajax: ');
+          alert('Ese amigo no existe');
         }
       });
     })
