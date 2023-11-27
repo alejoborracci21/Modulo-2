@@ -1,11 +1,14 @@
-(function () {
-  window.EventEmitter = EventEmitter;
+// (function () {
+//   window.EventEmitter = EventEmitter;
 
+
+  
+  
   // our EventEmitter constructor function
   function EventEmitter() {
     this.subscribers = {};
   }
-
+  
   // To be used like:
   // instanceOfEE.on('touchdown', cheerFn);
   EventEmitter.prototype.on = function (eventName, eventListener) {
@@ -28,7 +31,7 @@
     if (!this.subscribers[eventName]) {
       return;
     }
-
+    
     // Grab the remaining arguments to our emit function.
     var remainingArgs = [].slice.call(arguments, 1);
 
@@ -37,4 +40,6 @@
       listener.apply(null, remainingArgs);
     });
   };
-})();
+//})();
+
+  module.exports = EventEmitter;
