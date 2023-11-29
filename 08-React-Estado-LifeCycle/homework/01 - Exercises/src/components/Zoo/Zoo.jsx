@@ -5,7 +5,6 @@ import Animals from "../Animals/Animals";
 import Species from "../Species/Species";
 // import styledZoo from "./Zoo.module.css";
 
-
 export default function Zoo() {
 /* Escribe acá tu código */
 
@@ -27,17 +26,25 @@ const [zoo, setZoo] = React.useState({
          species: data.species,
          allAnimals: data.animals,
       })
-   )
+      )
    .catch((error) => console.log(error));
   },[])
 
   const handleSpecies = ((event) => {
+      const filtered = zoo.allAnimals.filter(animal => animal.specie === event.target.innerText )
+      console.log(event)
+      setZoo({
+       ...zoo,
+       animals: filtered
+     });
 
-  })
-
+ })
 
   const handleAllSpecies = (() => {
-
+    setZoo({
+      ...zoo,
+      animals: zoo.allAnimals
+    });
   })
 
 
