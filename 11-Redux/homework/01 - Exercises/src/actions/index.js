@@ -1,5 +1,5 @@
 // actions.js
-const { INCREMENTO, DECREMENTO, INCREMENTO_IMPAR, INCREMENTO_ASYNC } = require('../action-types');
+const { INCREMENTO, DECREMENTO, INCREMENTO_IMPAR } = require('../action-types');
 
 const incremento = () => {
   return {
@@ -19,17 +19,10 @@ const incrementoImpar = () => {
   };
 };
 
-const incrementoAsync = () => {
-  return dispatch => {
-    setTimeout(() => {
-      dispatch(incremento());
-    }, 100);
-  };
-};
+
 
 module.exports = {
   incremento,
   decremento,
-  incrementoImpar,
-  incrementoAsync
+  incrementoImpar
 };

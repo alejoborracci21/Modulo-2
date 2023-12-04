@@ -1,9 +1,9 @@
-const { createStore } = require("redux");
+const { legacy_createStore } = require("redux");
 const contador = require("./reducer");
 const { incremento, decremento, incrementoImpar, incrementoAsync } = require("./actions");
 
 // En esta línea creamos nuestro store. Pasándole como parámetro nuestro Reducer
-var store = createStore(contador);
+var store = legacy_createStore(contador);
 
 // Obtenemos el elemento con el id `valor`.
 var valor = document.getElementById("valor");
@@ -41,8 +41,7 @@ document.getElementById("incrementoImpar").addEventListener("click", () => {
 });
 
 document.getElementById("incrementoAsync").addEventListener("click", () => {
-  // Puedes usar esta función para simular una acción asincrónica
   setTimeout(() => {
-    store.dispatch(incrementoAsync());
+    store.dispatch(incremento());
   }, 1000);
 });
